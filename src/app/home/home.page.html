@@ -1,14 +1,27 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Login
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form (ngSubmit)="login()">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.senha" name="senha"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit"> Entrar </ion-button>
+  </form>
+
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    Não tem uma conta? <a [routerLink]="['/cadastro']" routerDirection="forward"> Cadastre-se</a>
+    <!-- <ion-button [routerLink]="['/cadastro']" routerDirection="forward"> Cadastrar </ion-button>   -->
+    <!-- <ion-button (click)="sair()" color="danger"> Sair </ion-button>   -->
   </div>
 </ion-content>

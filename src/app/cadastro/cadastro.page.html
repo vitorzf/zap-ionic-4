@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <a [routerLink]="['/home']" routerDirection="backward">Voltar</a>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="cadastrar()">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nome de usuário</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.nome" name="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.senha" name="senha"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit"> Cadastrar </ion-button>
+  </form>
+
+</ion-content>
