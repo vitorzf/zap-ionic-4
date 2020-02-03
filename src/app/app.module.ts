@@ -12,6 +12,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Helper } from 'src/Helpers/Helper';
+import { Camera } from '@ionic-native/camera/ngx';
+
+import { File } from '@ionic-native/file/ngx';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
+import { Base64 } from '@ionic-native/base64/ngx';
 
 var firebaseConfig = {
   apiKey: "AIzaSyC3YlpxyVnFPSbUyh3U2MF7QBS7xNgRigw",
@@ -34,6 +40,11 @@ var firebaseConfig = {
     AngularFireAuth,
     AngularFirestore,
     Helper,
+    Camera,
+    File,
+    FileChooser,
+    FilePath,
+    Base64,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

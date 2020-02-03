@@ -1,0 +1,22 @@
+
+ion-content{
+    --background: url("../../assets/images/fundo_login2.jpg") no-repeat center center fixed!important;
+}
+
+.botoes{
+    margin-top:10px;
+    display:flex;
+    justify-content: center;
+}
+
+.foto{
+    width: 120px;
+    height: 120px;
+    border:3px solid #8080ff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;  
+    border-radius:50%;
+    object-fit: cover;
+    object-position: center;
+}

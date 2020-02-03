@@ -1,0 +1,13 @@
+
+  <p>
+    Adicionar amigo 
+  </p>
+  <div class="divider"></div>
+  <form class="body" (ngSubmit)="adicionar()" >
+    <ion-item>
+      <ion-label position="floating">Número de telefone</ion-label>
+      <ion-input type="text" maxlength="11" [(ngModel)]="telefone" name="telefone"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" type="submit" style="margin-top:10px;"> Adicionar </ion-button>
+  </form>
+    <ion-button expand="block" color="danger" (click)="fechar()" style="margin-top:3px; padding:0px 20px 5px 20px;"> Cancelar </ion-button>

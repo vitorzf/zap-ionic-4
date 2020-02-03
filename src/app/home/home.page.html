@@ -1,27 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Login
+      Bem-vindo
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form (ngSubmit)="login()">
+<ion-content class="fundo">
+  <form (ngSubmit)="login()" style="margin-top:100px; padding:0px 20px 0px 20px;">
     <ion-item>
-      <ion-label>Email</ion-label>
+      <ion-label position="floating">Email</ion-label>
       <ion-input type="text" [(ngModel)]="usuario.email" name="email"></ion-input>
     </ion-item>
+    <br>
     <ion-item>
-      <ion-label>Senha</ion-label>
+      <ion-label position="floating">Senha</ion-label>
       <ion-input type="password" [(ngModel)]="usuario.senha" name="senha"></ion-input>
     </ion-item>
-    <ion-button expand="block" type="submit"> Entrar </ion-button>
+    <br>
+    <ion-button expand="block" color="dark" type="submit"> Entrar </ion-button>
   </form>
 
-  <div class="ion-padding">
-    Não tem uma conta? <a [routerLink]="['/cadastro']" routerDirection="forward"> Cadastre-se</a>
-    <!-- <ion-button [routerLink]="['/cadastro']" routerDirection="forward"> Cadastrar </ion-button>   -->
-    <!-- <ion-button (click)="sair()" color="danger"> Sair </ion-button>   -->
+  <div class="ion-padding text-center">
+    <a [routerLink]="['/cadastro']" routerDirection="forward"> 
+      <ion-button [routerLink]="['/cadastro']" expand="block" color="dark"> Cadastre-se</ion-button>
+    </a>
   </div>
 </ion-content>

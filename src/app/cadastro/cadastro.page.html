@@ -1,26 +1,54 @@
 <ion-header>
   <ion-toolbar>
-    <a [routerLink]="['/home']" routerDirection="backward">Voltar</a>
+    <ion-buttons [routerLink]="['/home']" slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
     <ion-title>Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <form (ngSubmit)="cadastrar()">
+  <form (ngSubmit)="cadastrar()" style="margin-top:30px; padding:0px 20px 0px 20px;">
+
+    
+    <div>
+      <img class="foto" *ngIf="usuario.foto == null" src="../../assets/images/sem_foto.png">
+      <img class="foto" *ngIf="usuario.foto != null" src="{{usuario.foto}}"> 
+      <ion-buttons class="botoes">
+
+        <ion-button (click)="escolherFoto()" style="font-size: 2em; margin-right:10px; color:white;">
+          <ion-icon name="folder"></ion-icon>
+        </ion-button>
+        <ion-button (click)="tirarFoto()" style="font-size: 2em; margin-left:10px; color:white;">
+          <ion-icon name="camera"></ion-icon>
+        </ion-button>
+
+      </ion-buttons>
+    </div>
+    <br>
     <ion-item>
-      <ion-label>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario.email" name="email"></ion-input>
+      <ion-label position="floating">Número de celular</ion-label>
+      <ion-input type="number" maxlength="11" [(ngModel)]="usuario.telefone" name="telefone"></ion-input>
     </ion-item>
+    <br>
     <ion-item>
-      <ion-label>Nome de usuário</ion-label>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="usuario.email" name="email"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="floating">Nome de usuário</ion-label>
       <ion-input type="text" [(ngModel)]="usuario.nome" name="usuario"></ion-input>
     </ion-item>
+    <br>
     <ion-item>
-      <ion-label>Senha</ion-label>
+      <ion-label position="floating">Senha</ion-label>
       <ion-input type="password" [(ngModel)]="usuario.senha" name="senha"></ion-input>
     </ion-item>
-    <ion-button expand="block" type="submit"> Cadastrar </ion-button>
+    <br>
+    <br>
+    <ion-button color="primary" expand="block" type="submit"> Cadastrar </ion-button>
   </form>
 
 </ion-content>

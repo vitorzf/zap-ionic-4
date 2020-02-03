@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { UsuariosPageRoutingModule } from './usuarios-routing.module';
 
 import { UsuariosPage } from './usuarios.page';
+import { AdicionarComponent } from '../adicionar/adicionar.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { UsuariosPage } from './usuarios.page';
     IonicModule,
     UsuariosPageRoutingModule
   ],
-  declarations: [UsuariosPage]
+  entryComponents:[AdicionarComponent],
+  declarations: [UsuariosPage, AdicionarComponent]
 })
 export class UsuariosPageModule {}
