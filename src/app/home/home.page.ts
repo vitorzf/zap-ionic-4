@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Usuarios } from 'src/Models/Usuarios';
 import { Helper } from 'src/Helpers/Helper';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -92,6 +93,8 @@ export class HomePage {
     this.fbauth.auth.signInWithEmailAndPassword(this.usuario.email, senha).then(() => {
       
       this.mostrarLoad(false);
+      this.usuario.email = '';
+      this.usuario.senha = '';
       this.rota.navigate(['/home']);
 
     }).catch(erro => {

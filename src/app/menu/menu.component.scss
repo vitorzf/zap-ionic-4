@@ -1,0 +1,19 @@
+.centro{
+    display:flex;
+    justify-content: center;
+    background-color:red;
+}
+
+.centerText{
+    margin-left:auto; 
+    margin-right: auto;
+}
+
+#foto{
+    width:4em;
+    height: 4em;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #2e59ed;
+}

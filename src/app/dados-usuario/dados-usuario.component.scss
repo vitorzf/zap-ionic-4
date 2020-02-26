@@ -1,0 +1,22 @@
+#botaofechar{
+    font-size: 30px;
+    position: absolute;
+    right:5px;
+    top:5px;
+}
+
+#divctr{
+    margin-top:10px;
+    display:flex;
+    justify-content: center;
+}
+
+.ctr{
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid #8080ff;
+    
+}

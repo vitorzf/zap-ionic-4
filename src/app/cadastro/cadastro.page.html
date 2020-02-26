@@ -11,9 +11,8 @@
 
   <form (ngSubmit)="cadastrar()" style="margin-top:30px; padding:0px 20px 0px 20px;">
 
-    
     <div>
-      <img class="foto" *ngIf="usuario.foto == null" src="../../assets/images/sem_foto.png">
+      <img class="foto" *ngIf="usuario.foto == null" src="assets/images/sem_fotopng.png">
       <img class="foto" *ngIf="usuario.foto != null" src="{{usuario.foto}}"> 
       <ion-buttons class="botoes">
 

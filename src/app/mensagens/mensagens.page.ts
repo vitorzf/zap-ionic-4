@@ -2,9 +2,12 @@ import { Component, OnInit, ViewChildren, ViewChild } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ActivatedRoute, ParamMap, Router} from '@angular/router';
 import { Mensagens } from 'src/Models/Mensagens';
+import { PopoverController } from '@ionic/angular';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { IonContent } from '@ionic/angular';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { DadosUsuarioComponent } from '../dados-usuario/dados-usuario.component';
 
 @Component({
   selector: 'app-mensagens',
@@ -27,12 +30,16 @@ export class MensagensPage implements OnInit {
   totalMensagens = 20;
   nome_usuario: string;
   pushing: boolean = false;
+  public foto_conversa: any = null;
+  public dados_usuario:any;
 
   constructor(
     public fbauth:AngularFireAuth,
     public rota: Router,
     public acrroute:ActivatedRoute,
-    public fbstore:AngularFirestore
+    public fbstore:AngularFirestore,
+    public fs: AngularFireStorage,
+    public popover: PopoverController
   ) { 
 
     this.mensagem = new Mensagens();
@@ -40,13 +47,23 @@ export class MensagensPage implements OnInit {
       this.usuariomensagem = params.get('id');
     });
 
+    setTimeout(() => {
+      this.foto_usuario();  
+    }, 100);
+
     this.ListarMensagens();
 
     setTimeout(() => {
       this.getUser();  
-    }, 100);
+    }, 200);
    
 
+  }
+
+  foto_usuario(){
+    this.fs.ref("fotos/"+this.usuariomensagem+"/foto_perfil.jpg").getDownloadURL().subscribe(url => {
+      this.foto_conversa = url;
+    })
   }
 
   ngOnInit() {
@@ -58,6 +75,15 @@ export class MensagensPage implements OnInit {
     let users = this.fbstore.collection('Usuarios');
     users.ref.where("usuario_id", "==", this.usuariomensagem).get().then(result => {
         result.forEach(e => {
+          
+          
+          this.dados_usuario = {
+            id:e.data().usuario_id,
+            nome:e.data().nome,
+            telefone:e.data().telefone,
+            email:e.data().email,
+            foto:this.foto_conversa
+          };
           
           this.nome_usuario = e.data().nome;
 
@@ -87,6 +113,17 @@ export class MensagensPage implements OnInit {
         this.filtrarLista(res);
     })
 
+  }
+
+  async dadosUsuario(ev: any){
+    const pop = await this.popover.create({
+      component:DadosUsuarioComponent,
+      translucent:true,
+      componentProps:{
+        usuario: this.dados_usuario
+      }
+    });
+    return await pop.present();
   }
 
   ScrollToBottom(){

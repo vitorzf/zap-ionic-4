@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.chatdovitao" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Chat do Vitão</name>
+    <name>Chat do vitão</name>
     <description>Um simples aplicativo de chat</description>
     <author email="igovitorbr@gmail.com" href="http://conteumahistoria.com/">Vitor Hugo Zafra Pereira</author>
     <content src="index.html" />

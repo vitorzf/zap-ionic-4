@@ -11,13 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireStorage } from 'angularfire2/storage'
 import { Helper } from 'src/Helpers/Helper';
 import { Camera } from '@ionic-native/camera/ngx';
-
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { File } from '@ionic-native/file/ngx';
-import { FileChooser } from '@ionic-native/file-chooser/ngx';
-import { FilePath } from '@ionic-native/file-path/ngx';
-import { Base64 } from '@ionic-native/base64/ngx';
+import { DadosUsuarioComponent } from './dados-usuario/dados-usuario.component';
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 
 var firebaseConfig = {
   apiKey: "AIzaSyC3YlpxyVnFPSbUyh3U2MF7QBS7xNgRigw",
@@ -30,8 +30,8 @@ var firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, DadosUsuarioComponent],
+  entryComponents: [DadosUsuarioComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig)],
   providers: [
     StatusBar,
@@ -39,12 +39,12 @@ var firebaseConfig = {
     AngularFireModule,
     AngularFireAuth,
     AngularFirestore,
+    AngularFireStorage,
     Helper,
     Camera,
     File,
-    FileChooser,
-    FilePath,
-    Base64,
+    ImagePicker,
+    PhotoViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

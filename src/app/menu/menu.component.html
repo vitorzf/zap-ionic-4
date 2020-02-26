@@ -1,3 +1,22 @@
-<p>
-  menu works!
-</p>
+<ion-list>
+  <ion-item class="centerText" *ngIf="!trocandoFoto" (click)="trocandoFoto = true;">
+      <img src="{{foto_usuario}}" id="foto">
+      <span style="margin-left:10px;">Alterar Foto</span>
+  </ion-item>
+  <ion-item *ngIf="trocandoFoto">
+    <ion-buttons class="centerText">
+      <ion-button (click)="escolherFoto()" style="font-size: 1.5em; margin-right:10px; color:black;">
+        <ion-icon name="folder"></ion-icon>
+      </ion-button>
+      <ion-button (click)="tirarFoto()" style="font-size: 1.5em; margin-left:10px; color:black;">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+      <ion-button (click)="trocandoFoto = false;" style="font-size: 1.5em; margin-left:10px; color:black;">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item (click)="sair()">
+    <ion-label style="text-align: center;">Sair</ion-label>
+  </ion-item>
+</ion-list>

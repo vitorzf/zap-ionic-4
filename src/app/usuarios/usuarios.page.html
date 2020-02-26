@@ -2,10 +2,13 @@
   <ion-toolbar>
     <ion-title>Contatos</ion-title>
     <ion-buttons slot="end">
-      <ion-icon class="{{piscando}}" style="font-size: 2em;" (click)="adicionar_amigo($event)" name="person-add"></ion-icon>
+      <ion-icon style="font-size: 2em;" (click)="adicionar_amigo($event)" name="person-add"></ion-icon>
     </ion-buttons>
-    <ion-buttons style="margin-left:10px; margin-right:10px;" (click)="sair()" slot="end">
-      <ion-icon style="font-size: 2em;" name="menu"></ion-icon>
+    <ion-buttons style="margin-left:10px; margin-right:10px;" (click)="abrir_menu($event)" slot="end">
+      <!-- <ion-icon style="font-size: 2em;" name="menu"></ion-icon> -->
+      <img *ngIf="foto_usuario == null" src="../../assets/images/sem_fotopng.png" style="width: 2em; height: 2em; border-radius: 50%;">
+      <img *ngIf="foto_usuario != null" src="{{foto_usuario}}" style="width: 2em; height: 2em; border-radius: 50%;">
+
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,11 +16,19 @@
 <ion-content>
   
   <ion-list *ngIf="listaUsuarios != null">
-     <ion-item *ngFor="let usuario of listaUsuarios" (click)="dadosUsuario(usuario.id)">
-       <ion-label>{{usuario.nome}}</ion-label>
-       <ion-button fill="clear" [routerLink]="['/mensagens/', usuario.id]" slot="end">
-        <ion-icon style="font-size:2.7em; color:black;" name="chatboxes"></ion-icon>
-       </ion-button>
+     <ion-item *ngFor="let usuario of listaUsuarios">
+       
+        <img class="fotos" src="{{usuario.foto}}">
+      
+       <ion-label style="margin-left:10px;">{{usuario.nome}}</ion-label>
+       <ion-buttons slot="end">
+          <ion-button fill="clear" (click)="dadosUsuario(usuario.id)">
+            <ion-icon style="font-size:2.7em; color:black;" name="information-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" [routerLink]="['/mensagens/', usuario.id]">
+            <ion-icon style="font-size:2.7em; color:black;" name="chatboxes"></ion-icon>
+          </ion-button>
+      </ion-buttons>
     </ion-item> 
   </ion-list>
 

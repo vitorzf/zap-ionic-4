@@ -8,6 +8,8 @@ import { UsuariosPageRoutingModule } from './usuarios-routing.module';
 
 import { UsuariosPage } from './usuarios.page';
 import { AdicionarComponent } from '../adicionar/adicionar.component';
+import { MenuComponent } from '../menu/menu.component';
+// import { DadosUsuarioComponent } from '../dados-usuario/dados-usuario.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import { AdicionarComponent } from '../adicionar/adicionar.component';
     IonicModule,
     UsuariosPageRoutingModule
   ],
-  entryComponents:[AdicionarComponent],
-  declarations: [UsuariosPage, AdicionarComponent]
+  entryComponents:[AdicionarComponent, MenuComponent],
+  declarations: [UsuariosPage, AdicionarComponent, MenuComponent]
 })
 export class UsuariosPageModule {}
+

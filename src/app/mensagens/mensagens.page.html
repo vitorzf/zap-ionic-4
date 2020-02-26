@@ -4,6 +4,12 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{nome_usuario}}</ion-title>
+    <ion-buttons style="margin-left:10px; margin-right:10px;" slot="end" (click)="dadosUsuario($event)">
+      <!-- <ion-icon style="font-size: 2em;" name="menu"></ion-icon> -->
+      <img *ngIf="foto_conversa == null" class="foto_usuario" src="../../assets/images/sem_fotopng.png">
+      <img *ngIf="foto_conversa != null" class="foto_usuario" src="{{foto_conversa}}" >
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

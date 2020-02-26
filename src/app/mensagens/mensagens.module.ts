@@ -8,6 +8,7 @@ import { MensagensPageRoutingModule } from './mensagens-routing.module';
 
 import { MensagensPage } from './mensagens.page';
 import { ChatBubbleComponent } from '../chat-bubble/chat-bubble.component';
+// import { DadosUsuarioComponent } from '../dados-usuario/dados-usuario.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ChatBubbleComponent } from '../chat-bubble/chat-bubble.component';
     IonicModule,
     MensagensPageRoutingModule
   ],
+  entryComponents: [],
   declarations: [MensagensPage, ChatBubbleComponent]
 })
 export class MensagensPageModule {}

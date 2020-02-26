@@ -1,0 +1,18 @@
+<div class="body">
+  <ion-icon id="botaofechar" (click)="fechar()" name="close-circle-outline"></ion-icon>
+  <div id="divctr">
+    <img class="ctr" src="{{dados.foto}}" (click)="verFoto(dados.nome, dados.foto)">
+  </div>
+  <ion-list>
+    <ion-item>
+      <b>Nome: </b> {{dados.nome}}
+    </ion-item>
+    <ion-item>
+      <b>Telefone: </b> {{dados.telefone}}
+    </ion-item>
+    <ion-item>
+      <b>Email: </b> {{dados.email}}
+    </ion-item>
+  </ion-list>
+
+</div>

@@ -10,7 +10,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class AdicionarComponent implements OnInit {
 
-  public telefone: any = null;
+  public telefone: any;
   public loadingvar: any = null;
   public meutelefone: any = null;
 
@@ -25,6 +25,10 @@ export class AdicionarComponent implements OnInit {
   ngOnInit() {}
 
   adicionar(){
+
+    if(this.telefone == undefined){
+      return;
+    }
 
     if(this.telefone.length < 11){
       this.AlertaSimples("Erro", '', "O número foi digitado incorretametne");
@@ -46,33 +50,16 @@ export class AdicionarComponent implements OnInit {
                 return;
               }
 
-        users.ref.where("telefone", "==", this.telefone).get().then(result => {
-          if(result.size == 0){
-            this.mostrarLoad(false);
-            this.AlertaSimples("Erro", '', "Nenhum usuário cadastrado com o número fornecido"); 
-            return;
-          }
-          result.forEach(f => {
+        users.ref.where("telefone", "==", this.telefone).get().then(resultado => {
+          // if(result.size == 0){
+          //   this.mostrarLoad(false);
+          //   this.AlertaSimples("Erro", '', "Nenhum usuário cadastrado com o número fornecido"); 
+          //   return;
+          // }
+          console.log(resultado)
+          resultado.forEach(f => {
 
             let msg = this.fbstore.collection("Mensagens");
-
-            // msg.ref.where('de', '==', user.uid).get().then(m => {
-            //   m.forEach(s => {
-            //     if(s.data().para == f.data().usuario_id){
-            //       this.AlertaSimples("Erro", '', "Você ja tem este usuario nos seus amigos"); 
-            //       return;
-            //     }
-            //   });
-            // });
-
-            // msg.ref.where('para', '==', user.uid).get().then(m => {
-            //   m.forEach(s => {
-            //     if(s.data().de == f.data().usuario_id){
-            //       this.AlertaSimples("Erro", '', "Você ja tem este usuario nos seus amigos"); 
-            //       return;
-            //     }
-            //   });
-            // });
 
             msg.add({
               de: user.uid,
